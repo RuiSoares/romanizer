@@ -7,7 +7,7 @@ module RomanizerErrors
 
   class OutOfRangeError < StandardError
     def message
-      "And caesar wept 'can you give me a number between 0 and 10000'"
+      "And caesar wept 'can you give me a number between 0 and 10000?'"
     end
   end
 end
