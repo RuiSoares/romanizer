@@ -3,4 +3,4 @@ $LOAD_PATH.unshift("#{File.dirname(__FILE__)}/../lib")
 
 require 'romanizer'
 
-Romanizer.new.run ARGV.first
+Romanizer.new.parse ARGV.first
