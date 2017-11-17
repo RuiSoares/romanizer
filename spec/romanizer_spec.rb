@@ -26,7 +26,7 @@ describe Romanizer do
       end
 
       it '149 returns CXLIX' do
-        expect( Romanizer.new.parse(1) ).to eq('CXLIX')
+        expect( Romanizer.new.parse(149) ).to eq('CXLIX')
       end
 
       it '300 returns CCC' do
