@@ -1,4 +1,3 @@
-require 'spec_helper'
 require 'rack/test'
 require './romanizer_app'
 require 'errors'

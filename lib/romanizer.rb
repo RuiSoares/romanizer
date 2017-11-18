@@ -22,6 +22,16 @@ class Romanizer
     'I' => 1
   }
 
+  def parse(arg)
+    number = Integer(arg) rescue false
+    raise RomanizerErrors::NotANumberError.new unless number_is_integer?(number)
+    raise RomanizerErrors::OutOfRangeError.new unless number_in_range?(number)
+
+    romanize(number)
+  end
+
+  private
+
   def romanize(number)
     return 'nulla' if number == 0
 
@@ -37,11 +47,11 @@ class Romanizer
     roman_result
   end
 
-  def parse(arg)
-    number = Integer(arg) rescue false
-    raise RomanizerErrors::NotANumberError.new unless number.is_a? Integer
-    raise RomanizerErrors::OutOfRangeError.new unless number <= 10000 && number >= 0
+  def number_in_range?(number)
+    number <= 10000 && number >= 0
+  end
 
-    return romanize(number)
+  def number_is_integer?(number)
+    number.is_a? Integer
   end
 end

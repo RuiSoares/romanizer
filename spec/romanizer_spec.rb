@@ -1,4 +1,3 @@
-require 'spec_helper'
 require 'romanizer'
 require 'errors'
 
@@ -6,13 +5,17 @@ describe Romanizer do
   describe '#parse' do
     context 'when given a non integer' do
       it 'sends an error message' do
-        expect { Romanizer.new.parse('not a number') }.to raise_error(RomanizerErrors::NotANumberError)
+        expect {
+          Romanizer.new.parse('not a number')
+        }.to raise_error(RomanizerErrors::NotANumberError)
       end
     end
 
     context 'when given a number bigger than 10000' do
       it 'sends an error message' do
-        expect { Romanizer.new.parse(10001) }.to raise_error(RomanizerErrors::OutOfRangeError)
+        expect {
+          Romanizer.new.parse(10001)
+        }.to raise_error(RomanizerErrors::OutOfRangeError)
       end
     end
 
@@ -23,6 +26,10 @@ describe Romanizer do
 
       it '1 returns I' do
         expect( Romanizer.new.parse(1) ).to eq('I')
+      end
+
+      it '8 returns VIII' do
+        expect( Romanizer.new.parse(8) ).to eq('VIII')
       end
 
       it '14 returns XIV' do
