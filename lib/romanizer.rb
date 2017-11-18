@@ -23,7 +23,10 @@ class Romanizer
   }
 
   def romanize(number)
+    return 'nulla' if number == 0
+
     roman_result = ''
+
     ROMAN_NUMBERS.each do |roman, value|
       while number >= value
         roman_result << roman

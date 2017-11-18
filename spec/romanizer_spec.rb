@@ -17,6 +17,10 @@ describe Romanizer do
     end
 
     context 'when given a valid number:' do
+      it '0 returns nulla' do
+        expect( Romanizer.new.parse(0) ).to eq('nulla')
+      end
+
       it '1 returns I' do
         expect( Romanizer.new.parse(1) ).to eq('I')
       end
